@@ -70,7 +70,8 @@ h6 {
 # Header
 --------------------------------------------------------------*/
 #header {
-  background: rgba(13, 53, 76,0.75);
+  /* background: rgba(13, 53, 76,0.75); */
+  background-color: #E7A944;
   transition: all 0.5s;
   z-index: 997;
   height: 80px;
@@ -168,7 +169,8 @@ h6 {
 .navbar .active,
 .navbar .active:focus,
 .navbar li:hover>a {
-  color: #fff;
+  /* color: #fff; */
+  color:#0C364D
 }
 
 .navbar .getstarted,
