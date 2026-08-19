@@ -1,0 +1,13 @@
+#heroCarousel .carousel-control-prev,
+#heroCarousel .carousel-control-next {
+  background: transparent;
+  border: 0;
+}
+
+#hero-carousel-indicators li {
+  cursor: pointer;
+}
+
+.mobile-nav-toggle {
+  cursor: pointer;
+}
