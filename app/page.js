@@ -1,13 +1,6 @@
 import Hero from '@/components/Hero';
 import ContactForm from '@/components/ContactForm';
-
-const clients = [
-  { src: '/assets/img/clients/chase-logo-transparent.png', alt: 'Chase' },
-  { src: '/assets/img/clients/popup.png', alt: 'Popup' },
-  { src: '/assets/img/clients/newbalance.jpg', alt: 'New Balance' },
-  { src: '/assets/img/clients/verizon.jpg', alt: 'Verizon' },
-  { src: '/assets/img/clients/pulse.png', alt: 'Pulse' },
-];
+import { accessibilityItems, services, siteName, slogan, stats } from '@/lib/site';
 
 export default function HomePage() {
   return (
@@ -20,37 +13,32 @@ export default function HomePage() {
               <div className="image col-xl-5 d-flex align-items-stretch justify-content-center justify-content-lg-start" />
               <div className="col-xl-7 ps-0 ps-lg-5 pe-lg-1 d-flex align-items-stretch">
                 <div className="content d-flex flex-column justify-content-center">
-                  <h3>About Triple HHH</h3>
+                  <h3>About {siteName}</h3>
                   <blockquote style={{ color: '#D7952A', fontSize: 24 }}>
-                    &quot;If You Look Good, You Feel Good&quot;
+                    &quot;{slogan}&quot;
                   </blockquote>
                   <p>
-                    Triple H is a one-of-a-kind organization that offers non-traditional wellness services. Our
-                    goal is to help you feel and look good. We offer short and long-term support to help
-                    individuals and families through difficult times. Triple H creates a holistic approach to
-                    wellness and self-care to aid in the healing process.
+                    Healing Helping Hands (Triple H) is a one-of-a-kind organization providing
+                    non-traditional, holistic wellness services designed to support individuals and families
+                    during short- and long-term recovery.
+                  </p>
+                  <p>
+                    We believe healing involves more than traditional care alone. Looking good, feeling good,
+                    emotional wellness, human connection, laughter, relaxation, and self-care can all play
+                    meaningful roles in the healing journey.
+                  </p>
+                  <p>
+                    Through our unique approach, Triple H brings supportive wellness and self-care services
+                    directly to individuals who need them most.
                   </p>
                   <div className="row">
-                    <div className="col-md-6 icon-box">
-                      <i className="bx bx-receipt" />
-                      <h4>Hair-care Grooming</h4>
-                      <p>Beauticians, Stylists, Barbers, Wig Replacements, Shaving, etc.</p>
-                    </div>
-                    <div className="col-md-6 icon-box">
-                      <i className="bx bx-cube-alt" />
-                      <h4>Entertainment Services</h4>
-                      <p>Karaoke, Comedic and One on One Services (UNO)</p>
-                    </div>
-                    <div className="col-md-6 icon-box">
-                      <i className="bx bx-images" />
-                      <h4>Massage Therapeutic Services</h4>
-                      <p>Full Body, Hand and Foot, Special Need Areas, Facials</p>
-                    </div>
-                    <div className="col-md-6 icon-box">
-                      <i className="bx bx-shield" />
-                      <h4>Mental Health Services</h4>
-                      <p>Couselors and Therapists</p>
-                    </div>
+                    {services.map((service) => (
+                      <div key={service.title} className="col-md-6 icon-box">
+                        <i className={`bx ${service.icon}`} />
+                        <h4>{service.title}</h4>
+                        <p>{service.description}</p>
+                      </div>
+                    ))}
                   </div>
                 </div>
               </div>
@@ -61,60 +49,17 @@ export default function HomePage() {
         <section id="counts" className="counts">
           <div className="container">
             <div className="row no-gutters">
-              <div className="col-lg-3 col-md-6 d-md-flex align-items-md-stretch">
-                <div className="count-box">
-                  <i className="bi bi-emoji-smile" />
-                  <span>232</span>
-                  <p>
-                    <strong>Happy Clients</strong>
-                  </p>
-                </div>
-              </div>
-              <div className="col-lg-3 col-md-6 d-md-flex align-items-md-stretch">
-                <div className="count-box">
-                  <i className="bi bi-journal-richtext" />
-                  <span>521</span>
-                  <p>
-                    <strong>Hours of Community Service</strong>
-                  </p>
-                </div>
-              </div>
-              <div className="col-lg-3 col-md-6 d-md-flex align-items-md-stretch">
-                <div className="count-box">
-                  <i className="bi bi-headset" />
-                  <span>24</span>
-                  <p>
-                    <strong>Hours Of Support</strong> daily
-                  </p>
-                </div>
-              </div>
-              <div className="col-lg-3 col-md-6 d-md-flex align-items-md-stretch">
-                <div className="count-box">
-                  <i className="bi bi-people" />
-                  <span>15</span>
-                  <p>
-                    <strong>Hard Workers</strong>
-                  </p>
-                </div>
-              </div>
-            </div>
-          </div>
-        </section>
-
-        <section id="clients" className="clients section-bg">
-          <div className="container">
-            <div className="row">
-              {clients.map((client) => (
-                <div
-                  key={client.src}
-                  className="col-lg-2 col-md-4 col-6 d-flex align-items-center justify-content-center"
-                >
-                  <img src={client.src} className="img-fluid" alt={client.alt} />
+              {stats.map((stat) => (
+                <div key={stat.label} className="col-lg-3 col-md-6 d-md-flex align-items-md-stretch">
+                  <div className="count-box">
+                    <i className={`bi ${stat.icon}`} />
+                    <span>{stat.value}</span>
+                    <p>
+                      <strong>{stat.label}</strong>
+                    </p>
+                  </div>
                 </div>
               ))}
-              <div className="col-lg-2 col-md-4 col-6 d-flex align-items-center justify-content-center">
-                Logo Placeholder
-              </div>
             </div>
           </div>
         </section>
@@ -122,14 +67,20 @@ export default function HomePage() {
         <section id="why-us" className="why-us">
           <div className="container">
             <div className="section-title">
-              <h2>Why Us</h2>
+              <h2>Why Healing Helping Hands?</h2>
+              <p>Healing is about the whole person.</p>
               <p>
-                Why Us? Triple H is one of a kind based upon…if you look good; our slogan you feel good…part of
-                feeling good is having non traditional wellness services provided to you when you have short or
-                long term care situation Supportive services to help individuals and families through a
-                difficult time…Triple H creates a holistic approach to wellness and self care, as one heals, we
-                provide through wellness rehabilitation services-pamper, laughter, which is comedic/karaoke,
-                massages (body/hand/feet), cosmetology/barbers/beauticians and more.
+                At Healing Helping Hands, we believe that when you look good, you can feel better—and when you
+                feel better, you are better equipped to focus on healing and recovery.
+              </p>
+              <p>
+                Our unique approach complements traditional care by bringing together self-care, grooming,
+                relaxation, entertainment, emotional wellness, and personal support.
+              </p>
+              <p>
+                Whether an individual is experiencing a short-term setback or a long-term recovery journey, our
+                goal is simple: to help people feel cared for, supported, confident, and connected throughout
+                the healing process.
               </p>
             </div>
             <div className="row">
@@ -155,12 +106,15 @@ export default function HomePage() {
         <section id="pricing" className="pricing">
           <div className="container">
             <div className="section-title">
-              <h2>Pricing</h2>
-              <p>All services will be offered ona sliding fee discount program</p>
-              <p>Add We Accept All Major Health Insurances</p>
-              <p>All Major Credit Cards</p>
-              <p>Scholarship Opportunities Available</p>
-              <p> All Inquiries answered 24/7</p>
+              <h2>Affordable &amp; Accessible Services</h2>
+              <p>We believe wellness and supportive care should be accessible to everyone.</p>
+              <ul style={{ listStyle: 'none', padding: 0, marginTop: 20 }}>
+                {accessibilityItems.map((item) => (
+                  <li key={item} style={{ marginBottom: 8 }}>
+                    &bull; {item}
+                  </li>
+                ))}
+              </ul>
             </div>
           </div>
         </section>

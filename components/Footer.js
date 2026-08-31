@@ -1,5 +1,6 @@
 'use client';
 
+import { address, email, phone, siteName } from '@/lib/site';
 import Link from 'next/link';
 import { useEffect, useRef } from 'react';
 
@@ -32,15 +33,18 @@ export default function Footer() {
               </figure>
 
               <div className="footer-info">
-                <h3>Healing Helping Hands</h3>
+                <h3>{siteName}</h3>
                 <p>
-                  6000 Columbus Ave 1906 <br />
-                  Plano, TX 75024 USA
+                  {address.line1}
+                  <br />
+                  {address.line2}
+                  <br />
+                  {address.cityStateZip}
                   <br />
                   <br />
-                  <strong>Phone:</strong> (310) 596-0500
+                  <strong>Phone:</strong> {phone}
                   <br />
-                  <strong>Email:</strong> infotriplehhealthcareservices@gmail.com
+                  <strong>Email:</strong> {email}
                   <br />
                 </p>
                 <br />

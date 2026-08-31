@@ -1,5 +1,6 @@
 'use client';
 
+import { address, email, phone, phoneHref } from '@/lib/site';
 import { useState } from 'react';
 
 const initialForm = {
@@ -55,7 +56,13 @@ export default function ContactForm() {
             <div className="contact-address">
               <i className="bi bi-geo-alt" />
               <h3>Address</h3>
-              <address> 6000 Columbus Ave 1906, Plano, TX 75024 USA</address>
+              <address>
+                {address.line1}
+                <br />
+                {address.line2}
+                <br />
+                {address.cityStateZip}
+              </address>
             </div>
           </div>
           <div className="col-md-4">
@@ -63,7 +70,7 @@ export default function ContactForm() {
               <i className="bi bi-phone" />
               <h3>Phone Number</h3>
               <p>
-                <a href="tel:3105960500">(310) 596-0500</a>
+                <a href={phoneHref}>{phone}</a>
               </p>
             </div>
           </div>
@@ -72,9 +79,7 @@ export default function ContactForm() {
               <i className="bi bi-envelope" />
               <h3>Email</h3>
               <p>
-                <a href="mailto:infotriplehhealthcareservices@gmail.com">
-                  infotriplehhealthcareservices@gmail.com
-                </a>
+                <a href={`mailto:${email}`}>{email}</a>
               </p>
             </div>
           </div>

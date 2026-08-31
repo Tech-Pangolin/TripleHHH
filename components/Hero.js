@@ -1,5 +1,6 @@
 'use client';
 
+import { services, siteName, siteTagline } from '@/lib/site';
 import { useEffect, useState } from 'react';
 
 const slides = [
@@ -7,37 +8,16 @@ const slides = [
     image: '/assets/img/slide/back-massage.jpg',
     backgroundSize: 'cover',
     backgroundPosition: 'center',
-    title: 'Healing Helping Hands',
-    text: 'Providing non traditional alternative holistic wellness services to help individuals and families heal.',
+    title: siteName,
+    text: siteTagline,
     showLogo: true,
   },
-  {
-    image: '/assets/img/slide/hair.jpg',
-    backgroundPosition: 'bottom',
-    title: 'Grooming Services',
-    text: 'Stylists and Barbers',
-    extra: '* Wig Replacements, Shaving, etc',
-  },
-  {
-    image: '/assets/img/slide/pedicure.jpg',
-    title: 'Nail Care Services',
-    text: 'Manicure and Pedicure',
-  },
-  {
-    image: '/assets/img/slide/cards-kid.jpg',
-    title: 'Interactive Therapy Services',
-    text: 'Karaoke and Group Entertainment',
-  },
-  {
-    image: '/assets/img/slide/massage.jpg',
-    title: 'Massage Services',
-    text: 'Full Body or Areas of Focus',
-  },
-  {
-    image: '/assets/img/slide/therapy-head-on.jpg',
-    title: 'Mental Health Services',
-    text: 'Counselors and Therapists',
-  },
+  ...services.map((service) => ({
+    image: service.slideImage,
+    backgroundPosition: service.backgroundPosition,
+    title: service.title,
+    text: service.description,
+  })),
 ];
 
 export default function Hero() {
@@ -91,7 +71,7 @@ export default function Hero() {
                     {slide.showLogo && (
                       <img
                         src="/assets/img/logo-lg.png"
-                        alt="Healing Helping Hands"
+                        alt={siteName}
                         style={{
                           width: 400,
                           zIndex: 9999,
@@ -102,16 +82,13 @@ export default function Hero() {
                       />
                     )}
                     <h2 className="animate__animated animate__fadeInDown">{slide.title}</h2>
-                    <p className="animate__animated animate__fadeInUp">
-                      {slide.text}
-                      {slide.extra && (
-                        <>
-                          <br /> {slide.extra}
-                        </>
-                      )}
-                    </p>
+                    <p className="animate__animated animate__fadeInUp">{slide.text}</p>
                     <div>
-                      <a href="#about" className="btn-get-started animate__animated animate__fadeInUp scrollto" onClick={scrollToAbout}>
+                      <a
+                        href="#about"
+                        className="btn-get-started animate__animated animate__fadeInUp scrollto"
+                        onClick={scrollToAbout}
+                      >
                         Read More
                       </a>
                     </div>

@@ -56,7 +56,7 @@ export default function Header() {
     <header id="header" className="fixed-top d-flex align-items-center">
       <div className="container d-flex align-items-center justify-content-between">
         <Link href="/" className="logo">
-          <img src="/assets/img/logo-trans.png" alt="Triple H Health Services" className="img-fluid" />
+          <img src="/assets/img/logo-trans.png" alt="Healing Helping Hands" className="img-fluid" />
         </Link>
 
         <nav id="navbar" className={`navbar${mobileOpen ? ' navbar-mobile' : ''}`}>

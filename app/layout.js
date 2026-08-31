@@ -4,9 +4,9 @@ import BackToTop from '@/components/BackToTop';
 import './globals.css';
 
 export const metadata = {
-  title: 'Triple H Health Services',
+  title: 'Healing Helping Hands',
   description:
-    'Providing non-traditional alternative holistic wellness services to help individuals and families heal.',
+    'Providing non-traditional, holistic wellness services designed to help individuals and families heal, recover, and feel their best.',
   icons: {
     icon: [
       { url: '/favicon-16x16.png', sizes: '16x16', type: 'image/png' },
