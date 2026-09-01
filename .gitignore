@@ -3,3 +3,9 @@
 node_modules
 .next
 out
+.env*
+
+# Story video is hosted in Vercel Blob — do not commit local copies
+public/assets/media/THE CH PROJECT.mp4
+public/assets/media/THE CH PROJECT.MOV
+
