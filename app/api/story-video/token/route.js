@@ -2,7 +2,7 @@ import { createPlaybackToken, isAllowedMediaRequest } from '@/lib/video-access';
 
 export async function GET(request) {
   if (!isAllowedMediaRequest(request)) {
-    return new Response('Forbidden', { status: 403 });
+    return Response.json({ error: 'Forbidden' }, { status: 403 });
   }
 
   if (!process.env.BLOB_READ_WRITE_TOKEN) {

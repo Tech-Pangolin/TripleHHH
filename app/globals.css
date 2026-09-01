@@ -14,12 +14,14 @@
 
 .story-video {
   width: 100%;
+  max-width: 100%;
 }
 
 .story-video__poster {
   position: relative;
   display: block;
   width: 100%;
+  max-width: 100%;
   padding: 0;
   border: 0;
   border-radius: 8px;
@@ -67,10 +69,21 @@
 }
 
 .story-video__player {
+  display: block;
   width: 100%;
+  max-width: 100%;
+  height: auto;
   border-radius: 8px;
   background: #000;
   aspect-ratio: 16 / 9;
+  object-fit: contain;
+}
+
+@media (min-width: 992px) {
+  .story-video__player,
+  .story-video__poster {
+    border-radius: 12px;
+  }
 }
 
 .story-video__error {

@@ -28,10 +28,19 @@ export default function StoryVideo() {
       let url = playbackUrl;
       if (!url) {
         const response = await fetch('/api/story-video/token', { cache: 'no-store' });
-        const data = await response.json();
+        const text = await response.text();
+        let data = {};
+
+        try {
+          data = text ? JSON.parse(text) : {};
+        } catch {
+          throw new Error(text || 'Unable to load video.');
+        }
+
         if (!response.ok) {
           throw new Error(data.error || 'Unable to load video.');
         }
+
         url = data.playbackUrl;
         setPlaybackUrl(url);
       }
