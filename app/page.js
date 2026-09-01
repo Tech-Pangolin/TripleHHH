@@ -68,19 +68,14 @@ export default function HomePage() {
           <div className="container">
             <div className="section-title">
               <h2>Why Healing Helping Hands?</h2>
-              <p>Healing is about the whole person.</p>
               <p>
-                At Healing Helping Hands, we believe that when you look good, you can feel better—and when you
-                feel better, you are better equipped to focus on healing and recovery.
-              </p>
-              <p>
-                Our unique approach complements traditional care by bringing together self-care, grooming,
-                relaxation, entertainment, emotional wellness, and personal support.
-              </p>
-              <p>
-                Whether an individual is experiencing a short-term setback or a long-term recovery journey, our
-                goal is simple: to help people feel cared for, supported, confident, and connected throughout
-                the healing process.
+                Healing is about the whole person. At Healing Helping Hands, we believe that when you look good,
+                you can feel better—and when you feel better, you are better equipped to focus on healing and
+                recovery. Our unique approach complements traditional care by bringing together self-care,
+                grooming, relaxation, entertainment, emotional wellness, and personal support. Whether an
+                individual is experiencing a short-term setback or a long-term recovery journey, our goal is
+                simple: to help people feel cared for, supported, confident, and connected throughout the
+                healing process.
               </p>
             </div>
             <div className="row">

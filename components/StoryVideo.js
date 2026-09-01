@@ -1,6 +1,52 @@
 'use client';
 
+import { storyVideoPoster } from '@/lib/story-images';
 import { useEffect, useRef, useState } from 'react';
+
+async function fetchPlaybackUrl() {
+  const response = await fetch('/api/story-video/token', { cache: 'no-store' });
+  const text = await response.text();
+  let data = {};
+
+  try {
+    data = text ? JSON.parse(text) : {};
+  } catch {
+    throw new Error(text || 'Unable to load video.');
+  }
+
+  if (!response.ok) {
+    throw new Error(data.error || 'Unable to load video.');
+  }
+
+  return data.playbackUrl;
+}
+
+function waitForVideoReady(video) {
+  if (video.readyState >= HTMLMediaElement.HAVE_FUTURE_DATA) {
+    return Promise.resolve();
+  }
+
+  return new Promise((resolve, reject) => {
+    function cleanup() {
+      video.removeEventListener('canplay', onCanPlay);
+      video.removeEventListener('error', onError);
+    }
+
+    function onCanPlay() {
+      cleanup();
+      resolve();
+    }
+
+    function onError() {
+      cleanup();
+      reject(new Error('Unable to load video.'));
+    }
+
+    video.addEventListener('canplay', onCanPlay);
+    video.addEventListener('error', onError);
+    video.load();
+  });
+}
 
 export default function StoryVideo() {
   const videoRef = useRef(null);
@@ -10,21 +56,31 @@ export default function StoryVideo() {
   const [error, setError] = useState('');
 
   useEffect(() => {
-    if (!isPlaying || !playbackUrl || !videoRef.current) {
-      return;
-    }
+    let cancelled = false;
 
-    videoRef.current.play().catch(() => {
-      setError('Unable to start video playback.');
-      setIsPlaying(false);
-    });
-  }, [isPlaying, playbackUrl]);
+    fetchPlaybackUrl()
+      .then((url) => {
+        if (!cancelled) {
+          setPlaybackUrl(url);
+        }
+      })
+      .catch(() => {});
+
+    return () => {
+      cancelled = true;
+    };
+  }, []);
 
   async function handlePlayClick() {
     setLoading(true);
     setError('');
 
     try {
+      const video = videoRef.current;
+      if (!video) {
+        throw new Error('Unable to load video.');
+      }
+
       let url = playbackUrl;
       if (!url) {
         const response = await fetch('/api/story-video/token', { cache: 'no-store' });
@@ -45,21 +101,42 @@ export default function StoryVideo() {
         setPlaybackUrl(url);
       }
 
+      if (video.getAttribute('src') !== url) {
+        video.src = url;
+      }
+
+      await waitForVideoReady(video);
       setIsPlaying(true);
+      await video.play();
     } catch (err) {
-      setError(err.message || 'Unable to load video.');
+      setError(err.message || 'Unable to start video playback.');
       setIsPlaying(false);
     } finally {
       setLoading(false);
     }
   }
 
+  function handleVideoError() {
+    setError('Unable to load video. Please try again.');
+    setIsPlaying(false);
+  }
+
   return (
-    <div
-      className="story-video"
-      onContextMenu={(event) => event.preventDefault()}
-    >
-      {!isPlaying ? (
+    <div className="story-video" onContextMenu={(event) => event.preventDefault()}>
+      <video
+        ref={videoRef}
+        className={`story-video__player${isPlaying ? ' story-video__player--visible' : ''}`}
+        controls
+        controlsList="nodownload noplaybackrate"
+        disablePictureInPicture
+        playsInline
+        preload="none"
+        draggable={false}
+        onContextMenu={(event) => event.preventDefault()}
+        onError={handleVideoError}
+      />
+
+      {!isPlaying && (
         <button
           type="button"
           className="story-video__poster"
@@ -68,7 +145,7 @@ export default function StoryVideo() {
           aria-label="Play recovery story video"
         >
           <img
-            src="/assets/img/pexels/headscarf-phone-smile.jpg"
+            src={storyVideoPoster}
             alt="Chenell Hickey recovery story"
             className="story-video__poster-image"
             draggable={false}
@@ -79,19 +156,6 @@ export default function StoryVideo() {
             <span>{loading ? 'Loading video...' : 'Watch My Story'}</span>
           </span>
         </button>
-      ) : (
-        <video
-          ref={videoRef}
-          className="story-video__player"
-          src={playbackUrl}
-          controls
-          controlsList="nodownload noplaybackrate"
-          disablePictureInPicture
-          playsInline
-          preload="metadata"
-          draggable={false}
-          onContextMenu={(event) => event.preventDefault()}
-        />
       )}
 
       {error && <p className="story-video__error">{error}</p>}

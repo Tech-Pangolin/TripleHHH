@@ -1,11 +1,7 @@
 import { get, head } from '@vercel/blob';
-import { isAllowedMediaRequest, storyVideoPathname, verifyPlaybackToken } from '@/lib/video-access';
+import { storyVideoPathname, verifyPlaybackToken } from '@/lib/video-access';
 
 export async function GET(request) {
-  if (!isAllowedMediaRequest(request)) {
-    return new Response('Forbidden', { status: 403 });
-  }
-
   const token = request.nextUrl.searchParams.get('token');
   if (!verifyPlaybackToken(token)) {
     return new Response('Forbidden', { status: 403 });
