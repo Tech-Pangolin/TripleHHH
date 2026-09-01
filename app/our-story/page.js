@@ -1,4 +1,5 @@
 import StorySlider from '@/components/StorySlider';
+import StoryVideo from '@/components/StoryVideo';
 
 export const metadata = {
   title: 'Our Story | Healing Helping Hands',
@@ -37,26 +38,7 @@ export default function OurStoryPage() {
           </div>
           <div className="row justify-content-center">
             <div className="col-lg-8 col-md-10">
-              <div
-                style={{
-                  aspectRatio: '16 / 9',
-                  backgroundColor: '#f4f4f4',
-                  border: '2px dashed #ccc',
-                  borderRadius: 8,
-                  display: 'flex',
-                  flexDirection: 'column',
-                  alignItems: 'center',
-                  justifyContent: 'center',
-                  textAlign: 'center',
-                  padding: 24,
-                }}
-              >
-                <i className="bi bi-play-circle" style={{ fontSize: 64, color: '#D7952A', marginBottom: 16 }} />
-                <p style={{ margin: 0, fontSize: 18, fontWeight: 600 }}>Video coming soon</p>
-                <p style={{ margin: '8px 0 0', color: '#666' }}>
-                  The final recovery story video will be displayed here.
-                </p>
-              </div>
+              <StoryVideo />
             </div>
           </div>
         </div>

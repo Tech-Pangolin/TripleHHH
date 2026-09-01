@@ -4,9 +4,11 @@
   "scripts": {
     "dev": "next dev",
     "build": "next build",
-    "start": "next start"
+    "start": "next start",
+    "upload-story-video": "node --env-file=.env scripts/upload-story-video.mjs"
   },
   "dependencies": {
+    "@vercel/blob": "^2.8.0",
     "next": "^15.5.0",
     "react": "^19.1.0",
     "react-dom": "^19.1.0"
