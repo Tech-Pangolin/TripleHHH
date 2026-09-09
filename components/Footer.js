@@ -2,17 +2,8 @@
 
 import { address, email, phone, siteName } from '@/lib/site';
 import Link from 'next/link';
-import { useEffect, useRef } from 'react';
 
 export default function Footer() {
-  const audioRef = useRef(null);
-
-  useEffect(() => {
-    const audio = audioRef.current;
-    if (!audio) return;
-    audio.play().catch(() => {});
-  }, []);
-
   function handleNewsletter(event) {
     event.preventDefault();
   }
@@ -23,15 +14,6 @@ export default function Footer() {
         <div className="container">
           <div className="row">
             <div className="col-lg-3 col-md-6">
-              <figure>
-                <figcaption>Reckoning:</figcaption>
-                <audio id="myAudio" ref={audioRef} controls>
-                  <source src="/assets/media/Podington Bear - Reckoning.mp3" type="audio/mpeg" />
-                  Your browser does not support the audio element.
-                </audio>
-                <a href="https://freemusicarchive.org/music/Podington_Bear/Soul/Reckoning_1345/">source</a>
-              </figure>
-
               <div className="footer-info">
                 <h3>{siteName}</h3>
                 <p>
