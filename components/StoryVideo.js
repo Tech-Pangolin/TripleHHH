@@ -22,17 +22,19 @@ async function fetchPlaybackUrl() {
 }
 
 function waitForVideoReady(video) {
-  if (video.readyState >= HTMLMediaElement.HAVE_FUTURE_DATA) {
-    return Promise.resolve();
-  }
-
   return new Promise((resolve, reject) => {
+    if (video.readyState >= HTMLMediaElement.HAVE_CURRENT_DATA) {
+      resolve();
+      return;
+    }
+
     function cleanup() {
-      video.removeEventListener('canplay', onCanPlay);
+      video.removeEventListener('canplay', onReady);
+      video.removeEventListener('loadeddata', onReady);
       video.removeEventListener('error', onError);
     }
 
-    function onCanPlay() {
+    function onReady() {
       cleanup();
       resolve();
     }
@@ -42,9 +44,15 @@ function waitForVideoReady(video) {
       reject(new Error('Unable to load video.'));
     }
 
-    video.addEventListener('canplay', onCanPlay);
+    video.addEventListener('canplay', onReady);
+    video.addEventListener('loadeddata', onReady);
     video.addEventListener('error', onError);
-    video.load();
+
+    // Catch race where data became ready between the check and listener attach.
+    if (video.readyState >= HTMLMediaElement.HAVE_CURRENT_DATA) {
+      cleanup();
+      resolve();
+    }
   });
 }
 
@@ -88,12 +96,16 @@ export default function StoryVideo() {
       }
 
       if (video.getAttribute('src') !== url) {
+        // Attach ready listeners before setting src so we don't miss canplay.
+        const ready = waitForVideoReady(video);
         video.src = url;
+        await ready;
+      } else {
+        await waitForVideoReady(video);
       }
 
-      await waitForVideoReady(video);
-      setIsPlaying(true);
       await video.play();
+      setIsPlaying(true);
     } catch (err) {
       setError(err.message || 'Unable to start video playback.');
       setIsPlaying(false);
