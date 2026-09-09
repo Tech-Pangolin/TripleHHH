@@ -189,7 +189,7 @@
 }
 
 .story-video__player {
-  display: none;
+  display: block;
   width: 100%;
   max-width: 100%;
   height: auto;
@@ -197,10 +197,18 @@
   background: #000;
   aspect-ratio: 16 / 9;
   object-fit: contain;
+  /* Keep in layout so the browser can load/play; hide until started */
+  position: absolute;
+  inset: 0;
+  opacity: 0;
+  pointer-events: none;
 }
 
 .story-video__player--visible {
-  display: block;
+  position: relative;
+  inset: auto;
+  opacity: 1;
+  pointer-events: auto;
 }
 
 .story-video__poster {

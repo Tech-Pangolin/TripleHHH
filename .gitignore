@@ -5,7 +5,8 @@ node_modules
 out
 .env*
 
-# Story video is hosted in Vercel Blob — do not commit local copies
+# Large original story video — use compressed public/assets/media/story-video.mp4
 public/assets/media/THE CH PROJECT.mp4
 public/assets/media/THE CH PROJECT.MOV
+story-video-720p.mp4
 
