@@ -1,5 +1,6 @@
 'use client';
 
+import { donationUrl } from '@/lib/site';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import { useEffect, useState } from 'react';
@@ -8,7 +9,7 @@ const navItems = [
   { href: '/', label: 'Home' },
   { href: '/our-story', label: 'Our Story' },
   { href: '/#about', label: 'Services' },
-  { href: '/#donate', label: 'Donate' },
+  { href: donationUrl, label: 'Donate' },
   { href: '/#contact', label: 'Contact' },
 ];
 
@@ -73,15 +74,6 @@ export default function Header() {
               </li>
             ))}
           </ul>
-          <a href="#" className="nav-sn" style={{ marginLeft: 20 }} aria-label="Twitter">
-            <i className="bi bi-twitter" />
-          </a>
-          <a href="#" className="nav-sn" aria-label="Facebook">
-            <i className="bi bi-facebook" />
-          </a>
-          <a href="#" className="nav-sn" aria-label="Instagram">
-            <i className="bi bi-instagram" />
-          </a>
           <i
             className={`bi mobile-nav-toggle ${mobileOpen ? 'bi-x' : 'bi-list'}`}
             onClick={() => setMobileOpen((open) => !open)}

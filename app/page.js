@@ -1,6 +1,6 @@
 import Hero from '@/components/Hero';
 import ContactForm from '@/components/ContactForm';
-import { accessibilityItems, services, siteName, slogan, stats } from '@/lib/site';
+import { accessibilityItems, services, siteName, slogan } from '@/lib/site';
 
 export default function HomePage() {
   return (
@@ -18,9 +18,8 @@ export default function HomePage() {
                     &quot;{slogan}&quot;
                   </blockquote>
                   <p>
-                    Healing Helping Hands (Triple H) is a one-of-a-kind organization providing
-                    non-traditional, holistic wellness services designed to support individuals and families
-                    during short- and long-term recovery.
+                    Healing Helping Hands (Triple H) provides non-traditional, holistic wellness services
+                    designed to support individuals and families during short- and long-term recovery.
                   </p>
                   <p>
                     We believe healing involves more than traditional care alone. Looking good, feeling good,
@@ -46,52 +45,44 @@ export default function HomePage() {
           </div>
         </section>
 
-        <section id="counts" className="counts">
-          <div className="container">
-            <div className="row no-gutters">
-              {stats.map((stat) => (
-                <div key={stat.label} className="col-lg-3 col-md-6 d-md-flex align-items-md-stretch">
-                  <div className="count-box">
-                    <i className={`bi ${stat.icon}`} />
-                    <span>{stat.value}</span>
-                    <p>
-                      <strong>{stat.label}</strong>
-                    </p>
-                  </div>
-                </div>
-              ))}
-            </div>
-          </div>
-        </section>
-
         <section id="why-us" className="why-us">
           <div className="container">
             <div className="section-title">
               <h2>Why Healing Helping Hands?</h2>
               <p>
-                Healing is about the whole person. At Healing Helping Hands, we believe that when you look good,
-                you can feel better—and when you feel better, you are better equipped to focus on healing and
-                recovery. Our unique approach complements traditional care by bringing together self-care,
-                grooming, relaxation, entertainment, emotional wellness, and personal support. Whether an
-                individual is experiencing a short-term setback or a long-term recovery journey, our goal is
-                simple: to help people feel cared for, supported, confident, and connected throughout the
-                healing process.
+                We complement traditional care by bringing personal care, therapeutic massage, engaging
+                activities, and emotional wellness support together in one whole-person approach. These
+                services are designed to meet people where they are, whether they are navigating a short-term
+                setback or a long-term recovery. Our focus on dignity, confidence, connection, and comfort
+                helps each person feel seen and supported throughout the healing journey.
               </p>
             </div>
             <div className="row">
               <div className="col-lg-4">
                 <div className="box">
-                  <img src="/assets/img/pexels/couple-bed.jpg" className="img-fluid" alt="" />
+                  <img
+                    src="/assets/img/pexels/couple-bed.jpg"
+                    className="img-fluid"
+                    alt="A couple supporting each other during recovery"
+                  />
                 </div>
               </div>
               <div className="col-lg-4 mt-4 mt-lg-0">
                 <div className="box">
-                  <img src="/assets/img/pexels/headscarf-phone-smile.jpg" className="img-fluid" alt="" />
+                  <img
+                    src="/assets/img/pexels/headscarf-phone-smile.jpg"
+                    className="img-fluid"
+                    alt="A smiling person connecting with support by phone"
+                  />
                 </div>
               </div>
               <div className="col-lg-4 mt-4 mt-lg-0">
                 <div className="box">
-                  <img src="/assets/img/pexels/couch-chat.jpg" className="img-fluid" alt="" />
+                  <img
+                    src="/assets/img/pexels/couch-chat.jpg"
+                    className="img-fluid"
+                    alt="Two people having a supportive conversation"
+                  />
                 </div>
               </div>
             </div>
@@ -101,7 +92,7 @@ export default function HomePage() {
         <section id="pricing" className="pricing">
           <div className="container">
             <div className="section-title">
-              <h2>Affordable &amp; Accessible Services</h2>
+              <h2>Affordable and Accessible Services</h2>
               <p>We believe wellness and supportive care should be accessible to everyone.</p>
               <ul style={{ listStyle: 'none', padding: 0, marginTop: 20 }}>
                 {accessibilityItems.map((item) => (

@@ -73,7 +73,8 @@ export default function Hero() {
                         src="/assets/img/logo-lg.png"
                         alt={siteName}
                         style={{
-                          width: 400,
+                          width: 'min(400px, 100%)',
+                          height: 'auto',
                           zIndex: 9999,
                           backgroundColor: 'rgba(255,255,255,1)',
                           padding: 25,

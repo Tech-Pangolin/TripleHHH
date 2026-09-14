@@ -2,6 +2,7 @@ import Link from 'next/link';
 import OurStoryHero from '@/components/OurStoryHero';
 import StorySlider from '@/components/StorySlider';
 import StoryVideo from '@/components/StoryVideo';
+import { donationUrl } from '@/lib/site';
 
 export const metadata = {
   title: 'Our Story | Healing Helping Hands',
@@ -15,7 +16,7 @@ export default function OurStoryPage() {
         <section className="our-story-origin">
           <div className="container">
             <div className="section-title our-story-origin__title">
-              <h2>Why this Organization was created</h2>
+              <h2>Why This Organization Was Created</h2>
             </div>
 
             <div className="row gy-4 align-items-center our-story-intro">
@@ -27,8 +28,8 @@ export default function OurStoryPage() {
                   Chenell Hickey, Triple H&apos;s CEO and founder, suffered a tragic accident in December of
                   2022. He sustained a severe spinal cord injury and was left paralyzed from the neck down.
                   After six surgeries, ongoing rehabilitation, one-on-one interactive activities including
-                  personal grooming, and lots of prayers, Chenell is a walking testimony. Triple H was born
-                  from his personal experience.
+                  personal grooming, and the support of many prayers, Chenell became a walking testimony.
+                  Triple H grew from his personal experience and the care that supported his recovery.
                 </p>
               </div>
             </div>
@@ -64,7 +65,7 @@ export default function OurStoryPage() {
               <Link href="/#contact" className="our-story-cta__btn our-story-cta__btn--outline">
                 Get in Touch
               </Link>
-              <Link href="/#donate" className="our-story-cta__btn our-story-cta__btn--outline">
+              <Link href={donationUrl} className="our-story-cta__btn our-story-cta__btn--outline">
                 Donate
               </Link>
             </div>

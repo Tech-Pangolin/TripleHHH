@@ -40,4 +40,4 @@ The video is not served from `public/`, cannot be hotlinked from other domains, 
 
 ## Production
 
-Deploy the repo to Vercel. Set `RESEND_API_KEY`, `CONTACT_FROM_EMAIL`, `CONTACT_TO_EMAIL`, `CONTACT_BCC_EMAIL`, `BLOB_READ_WRITE_TOKEN`, and `STORY_VIDEO_BLOB_PATHNAME` in the project environment variables.
+Deploy the repo to Vercel. Set `RESEND_API_KEY`, `CONTACT_FROM_EMAIL`, `CONTACT_TO_EMAIL`, `CONTACT_BCC_EMAIL`, `NEXT_PUBLIC_DONATION_URL`, `BLOB_READ_WRITE_TOKEN`, and `STORY_VIDEO_BLOB_PATHNAME` in the project environment variables. `NEXT_PUBLIC_DONATION_URL` must be the complete HTTPS URL supplied by the selected donation processor.
