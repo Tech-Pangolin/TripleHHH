@@ -1,4 +1,4 @@
-import { address, donationUrl, email, legalName, phone, siteName } from '@/lib/site';
+import { address, donationUrl, email, phone, siteName } from '@/lib/site';
 import Link from 'next/link';
 
 export default function Footer() {
@@ -22,12 +22,6 @@ export default function Footer() {
                   <br />
                   <strong>Email:</strong> {email}
                   <br />
-                </p>
-                <br />
-                <p id="donate">
-                  {legalName} is recognized by the Internal Revenue Service as a tax-exempt nonprofit
-                  organization under Section 501(c)(3) of the Internal Revenue Code. Contributions are
-                  tax-deductible to the extent permitted by law.
                 </p>
               </div>
             </div>

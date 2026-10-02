@@ -48,7 +48,10 @@ export default function ContactForm() {
       <div className="container">
         <div className="section-title">
           <h2>Contact</h2>
-          <p>For more information, please reach out to us below.</p>
+          <p>
+            Serving Carrollton and the Dallas-Fort Worth area. For more information, please reach out to us
+            below.
+          </p>
         </div>
 
         <div className="row contact-info">

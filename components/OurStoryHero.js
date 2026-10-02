@@ -6,7 +6,7 @@ export default function OurStoryHero() {
       <div className="container">
         <div className="d-flex justify-content-between align-items-center flex-wrap gap-2">
           <div>
-            <h2>Our Story</h2>
+            <h1>Our Story</h1>
             <p className="our-story-hero__subtitle">
               Chenell Hickey&apos;s journey and the mission behind Healing Helping Hands.
             </p>

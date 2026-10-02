@@ -71,7 +71,9 @@ export default function Hero() {
                     {slide.showLogo && (
                       <img
                         src="/assets/img/logo-lg.png"
-                        alt={siteName}
+                        alt={`${siteName} logo`}
+                        width={1348}
+                        height={681}
                         style={{
                           width: 'min(400px, 100%)',
                           height: 'auto',
@@ -82,7 +84,7 @@ export default function Hero() {
                         }}
                       />
                     )}
-                    <h2 className="animate__animated animate__fadeInDown">{slide.title}</h2>
+                    <p className="hero-title animate__animated animate__fadeInDown">{slide.title}</p>
                     <p className="animate__animated animate__fadeInUp">{slide.text}</p>
                     <div>
                       <a

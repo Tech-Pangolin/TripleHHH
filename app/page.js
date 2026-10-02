@@ -1,6 +1,10 @@
 import Hero from '@/components/Hero';
 import ContactForm from '@/components/ContactForm';
-import { accessibilityItems, services, siteName, slogan } from '@/lib/site';
+import { accessibilityItems, legalName, services, slogan, venmoHandle, venmoUrl } from '@/lib/site';
+
+export const metadata = {
+  alternates: { canonical: '/' },
+};
 
 export default function HomePage() {
   return (
@@ -13,13 +17,14 @@ export default function HomePage() {
               <div className="image col-xl-5 d-flex align-items-stretch justify-content-center justify-content-lg-start" />
               <div className="col-xl-7 ps-0 ps-lg-5 pe-lg-1 d-flex align-items-stretch">
                 <div className="content d-flex flex-column justify-content-center">
-                  <h3>About {siteName}</h3>
+                  <h1>Holistic Wellness and Recovery Support in Carrollton, TX</h1>
                   <blockquote style={{ color: '#D7952A', fontSize: 24 }}>
                     &quot;{slogan}&quot;
                   </blockquote>
                   <p>
-                    Healing Helping Hands (Triple H) provides non-traditional, holistic wellness services
-                    designed to support individuals and families during short- and long-term recovery.
+                    Healing Helping Hands (Triple H) is a nonprofit that provides non-traditional, holistic
+                    wellness services to individuals and families in Carrollton and across the Dallas-Fort Worth
+                    area during short- and long-term recovery.
                   </p>
                   <p>
                     We believe healing involves more than traditional care alone. Looking good, feeling good,
@@ -63,6 +68,9 @@ export default function HomePage() {
                   <img
                     src="/assets/img/pexels/couple-bed.jpg"
                     className="img-fluid"
+                    width={1280}
+                    height={1917}
+                    loading="lazy"
                     alt="A couple supporting each other during recovery"
                   />
                 </div>
@@ -72,6 +80,9 @@ export default function HomePage() {
                   <img
                     src="/assets/img/pexels/headscarf-phone-smile.jpg"
                     className="img-fluid"
+                    width={1280}
+                    height={1920}
+                    loading="lazy"
                     alt="A smiling person connecting with support by phone"
                   />
                 </div>
@@ -81,6 +92,9 @@ export default function HomePage() {
                   <img
                     src="/assets/img/pexels/couch-chat.jpg"
                     className="img-fluid"
+                    width={1920}
+                    height={2880}
+                    loading="lazy"
                     alt="Two people having a supportive conversation"
                   />
                 </div>
@@ -101,6 +115,62 @@ export default function HomePage() {
                   </li>
                 ))}
               </ul>
+            </div>
+          </div>
+        </section>
+
+        <section id="donate" className="donate section-bg">
+          <div className="container">
+            <div className="section-title">
+              <h2>Support Our Mission</h2>
+              <p>
+                {legalName} is recognized by the IRS as a tax-exempt nonprofit organization under Section
+                501(c)(3). Contributions are tax-deductible to the extent permitted by law.
+              </p>
+            </div>
+            <div className="row justify-content-center align-items-center gy-4">
+              <div className="col-lg-4 col-md-6 text-center">
+                <div className="donate__qr">
+                  <img
+                    src="/assets/img/zelle-qr.png"
+                    alt="Zelle QR code to donate to Triple H Health Care Services"
+                    className="img-fluid"
+                    width={500}
+                    height={540}
+                    loading="lazy"
+                  />
+                </div>
+              </div>
+              <div className="col-lg-6 col-md-6">
+                <h3 className="donate__heading">Donate with Zelle</h3>
+                <ol className="donate__steps">
+                  <li>Open your bank&apos;s mobile app and go to Zelle.</li>
+                  <li>Choose Send, then tap the QR code icon and scan the code.</li>
+                  <li>Confirm that the recipient shows as TRIPLE H HEALTH CARE SERVICES.</li>
+                  <li>Enter your donation amount.</li>
+                  <li>Add your name and email in the memo so we can send your donation receipt.</li>
+                </ol>
+                <p className="donate__note">
+                  On a phone? A QR code can&apos;t be scanned from the same phone that&apos;s displaying it.
+                  Use Venmo below, open this page on another screen, or <a href="#contact">contact us</a>{' '}
+                  for our Zelle details.
+                </p>
+              </div>
+            </div>
+            <div className="donate__venmo text-center">
+              <h3 className="donate__heading">Donate with Venmo</h3>
+              <p>
+                Send your donation to <strong>@{venmoHandle}</strong> on Venmo. Please include your name and
+                email in the note so we can send your donation receipt.
+              </p>
+              <a
+                href={venmoUrl}
+                className="donate__venmo-btn"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                Donate with Venmo
+              </a>
             </div>
           </div>
         </section>

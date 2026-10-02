@@ -19,6 +19,14 @@ const nextConfig = {
     return [
       { source: '/index.html', destination: '/', permanent: true },
       { source: '/our-story.html', destination: '/our-story', permanent: true },
+      ...['triplehhealthservices.org', 'www.triplehhealthservices.org', 'www.triplehhealthservices.com'].map(
+        (host) => ({
+          source: '/:path*',
+          has: [{ type: 'host', value: host }],
+          destination: 'https://triplehhealthservices.com/:path*',
+          permanent: true,
+        }),
+      ),
     ];
   },
   async headers() {

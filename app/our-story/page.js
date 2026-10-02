@@ -2,10 +2,30 @@ import Link from 'next/link';
 import OurStoryHero from '@/components/OurStoryHero';
 import StorySlider from '@/components/StorySlider';
 import StoryVideo from '@/components/StoryVideo';
-import { donationUrl } from '@/lib/site';
+import { donationUrl, ogImage, siteName } from '@/lib/site';
+
+const description =
+  'How founder Chenell Hickey recovered from a severe spinal cord injury and started Healing Helping Hands to support people in recovery across Dallas-Fort Worth.';
 
 export const metadata = {
-  title: 'Our Story | Healing Helping Hands',
+  title: 'Our Story',
+  description,
+  alternates: { canonical: '/our-story' },
+  openGraph: {
+    type: 'website',
+    locale: 'en_US',
+    siteName,
+    url: '/our-story',
+    title: `Our Story | ${siteName}`,
+    description,
+    images: [ogImage],
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: `Our Story | ${siteName}`,
+    description,
+    images: [ogImage.url],
+  },
 };
 
 export default function OurStoryPage() {

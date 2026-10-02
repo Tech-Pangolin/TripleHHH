@@ -1,6 +1,6 @@
 'use client';
 
-import { storyCarouselImages } from '@/lib/story-images';
+import { storyCarouselImages, storyImageSize } from '@/lib/story-images';
 import { useCallback, useEffect, useState } from 'react';
 
 const images = storyCarouselImages;
@@ -57,12 +57,17 @@ export default function StorySlider() {
         </button>
 
         <div className="story-slider__slides">
-          {images.map((src, index) => (
+          {images.map((image, index) => (
             <div
-              key={src}
+              key={image.src}
               className={`story-slider__slide${index === active ? ' story-slider__slide--active' : ''}`}
             >
-              <img src={src} alt={`Chenell Hickey recovery story ${index + 1}`} />
+              <img
+                src={image.src}
+                alt={image.alt}
+                width={storyImageSize.width}
+                height={storyImageSize.height}
+              />
             </div>
           ))}
         </div>
@@ -78,9 +83,9 @@ export default function StorySlider() {
       </div>
 
       <div className="story-slider__dots">
-        {images.map((src, index) => (
+        {images.map((image, index) => (
           <button
-            key={src}
+            key={image.src}
             type="button"
             className={`story-slider__dot${index === active ? ' story-slider__dot--active' : ''}`}
             onClick={() => goTo(index)}

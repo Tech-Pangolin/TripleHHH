@@ -1,12 +1,33 @@
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 import BackToTop from '@/components/BackToTop';
+import JsonLd from '@/components/JsonLd';
+import { ogImage, siteDescription, siteName, siteUrl } from '@/lib/site';
 import './globals.css';
 
 export const metadata = {
-  title: 'Healing Helping Hands',
-  description:
-    'Providing non-traditional, holistic wellness services designed to help individuals and families heal, recover, and feel their best.',
+  metadataBase: new URL(siteUrl),
+  title: {
+    default: 'Holistic Wellness and Recovery Support in Carrollton, TX | Healing Helping Hands',
+    template: `%s | ${siteName}`,
+  },
+  description: siteDescription,
+  applicationName: siteName,
+  openGraph: {
+    type: 'website',
+    locale: 'en_US',
+    siteName,
+    url: '/',
+    title: 'Holistic Wellness and Recovery Support in Carrollton, TX',
+    description: siteDescription,
+    images: [ogImage],
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Holistic Wellness and Recovery Support in Carrollton, TX',
+    description: siteDescription,
+    images: [ogImage.url],
+  },
   icons: {
     icon: [
       { url: '/favicon-16x16.png', sizes: '16x16', type: 'image/png' },
@@ -32,6 +53,7 @@ export default function RootLayout({ children }) {
         <link href="/assets/css/style.css" rel="stylesheet" />
       </head>
       <body>
+        <JsonLd />
         <Header />
         {children}
         <Footer />

@@ -22,14 +22,35 @@ export default function Header() {
   }, [pathname]);
 
   useEffect(() => {
-    if (!window.location.hash) return;
+    if (!window.location.hash) return undefined;
     const el = document.querySelector(window.location.hash);
     const header = document.querySelector('#header');
-    if (!el || !header) return;
-    window.scrollTo({
-      top: el.offsetTop - header.offsetHeight,
-      behavior: 'smooth',
+    if (!el || !header) return undefined;
+
+    function scrollToTarget(behavior) {
+      window.scrollTo({ top: el.offsetTop - header.offsetHeight, behavior });
+    }
+
+    scrollToTarget('smooth');
+
+    // Images above the target can finish loading after the first scroll and push it down.
+    const pendingImages = [...document.images].filter((img) => !img.complete);
+    let cancelled = false;
+    Promise.all(
+      pendingImages.map(
+        (img) =>
+          new Promise((resolve) => {
+            img.addEventListener('load', resolve, { once: true });
+            img.addEventListener('error', resolve, { once: true });
+          }),
+      ),
+    ).then(() => {
+      if (!cancelled && pendingImages.length) scrollToTarget('auto');
     });
+
+    return () => {
+      cancelled = true;
+    };
   }, [pathname]);
 
   function handleHashClick(event, href) {
