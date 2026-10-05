@@ -6,6 +6,14 @@ export const metadata = {
   alternates: { canonical: '/' },
 };
 
+const supportAreas = [
+  'Wellness and personal-care services',
+  'Patient and family support',
+  'Confidence and emotional well-being programs',
+  'Special experiences and entertainment',
+  'Community outreach',
+];
+
 export default function HomePage() {
   return (
     <>
@@ -125,43 +133,56 @@ export default function HomePage() {
               <h2>Support Our Mission</h2>
               <p className="donate__subtitle">Your Donation Makes a Difference</p>
             </div>
-            <div className="donate__intro">
-              <p>
-                At Healing Helping Hands (Triple H), we believe recovery is about more than medical treatment.
-                It&apos;s also about restoring hope, confidence, dignity, and a sense of normalcy during some of
-                life&apos;s most difficult moments.
-              </p>
-              <p>
-                Your contribution helps us provide supportive wellness, personal-care, and uplifting experiences
-                for individuals and families navigating short- and long-term recovery.
-              </p>
-              <p>
-                Whether someone is recovering from a serious injury, illness, extended hospitalization, or
-                rehabilitation, our goal is simple: help make the journey a little easier and remind people
-                that they are not alone.
-              </p>
+            <div className="row gy-4 align-items-center">
+              <div className="col-lg-7 donate__intro">
+                <p>
+                  At Healing Helping Hands (Triple H), we believe recovery is about more than medical
+                  treatment. It&apos;s also about restoring hope, confidence, dignity, and a sense of normalcy
+                  during some of life&apos;s most difficult moments.
+                </p>
+                <p>
+                  Your contribution helps us provide supportive wellness, personal-care, and uplifting
+                  experiences for individuals and families navigating short- and long-term recovery.
+                </p>
+                <p>
+                  Whether someone is recovering from a serious injury, illness, extended hospitalization, or
+                  rehabilitation, our goal is simple: help make the journey a little easier and remind people
+                  that they are not alone.
+                </p>
+              </div>
+              <div className="col-lg-5">
+                <div className="donate__card">
+                  <h3 className="donate__heading">Where Your Support Goes</h3>
+                  <ul className="donate__list">
+                    {supportAreas.map((area) => (
+                      <li key={area}>
+                        <i className="bx bx-check-circle" aria-hidden="true" />
+                        {area}
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              </div>
             </div>
 
-            <div className="donate__block">
-              <h3 className="donate__heading">Where Your Support Goes</h3>
-              <p>
-                Donations help support wellness and personal-care services, patient and family support,
-                programs promoting confidence and emotional well-being, special experiences and entertainment,
-                and community outreach initiatives.
-              </p>
-            </div>
-
-            <div className="donate__block">
+            <div className="donate__band">
               <h3 className="donate__heading">Every Contribution Matters</h3>
               <p>
                 Whether someone gives $25, $50, $100, $500, or more, every contribution helps us continue
                 expanding our reach and providing meaningful support to people throughout their recovery
                 journey.
               </p>
+              <ul className="donate__chips" aria-hidden="true">
+                {['$25', '$50', '$100', '$500+'].map((amount) => (
+                  <li key={amount} className="donate__chip">
+                    {amount}
+                  </li>
+                ))}
+              </ul>
               <p className="donate__callout">Together, we can help turn difficult days into better ones.</p>
             </div>
 
-            <div className="donate__block donate__block--divider">
+            <div className="donate__now">
               <h3 className="donate__heading">Donate Now</h3>
               <p>
                 Healing Helping Hands is a 501(c)(3) nonprofit organization. Contributions are tax-deductible
@@ -169,71 +190,89 @@ export default function HomePage() {
               </p>
             </div>
 
-            <div className="row justify-content-center align-items-center gy-4 mt-2">
-              <div className="col-lg-4 col-md-6 text-center">
-                <div className="donate__qr">
-                  <img
-                    src="/assets/img/zelle-qr.png"
-                    alt="Zelle QR code to donate to Triple H Health Care Services"
-                    className="img-fluid"
-                    width={500}
-                    height={540}
-                    loading="lazy"
-                  />
+            <div className="row gy-4">
+              <div className="col-lg-7">
+                <div className="donate__card donate__card--zelle">
+                  <h3 className="donate__heading">Donate with Zelle</h3>
+                  <div className="row gy-3 align-items-center">
+                    <div className="col-sm-5 text-center">
+                      <img
+                        src="/assets/img/zelle-qr.png"
+                        alt="Zelle QR code to donate to Triple H Health Care Services"
+                        className="img-fluid donate__qr"
+                        width={500}
+                        height={540}
+                        loading="lazy"
+                      />
+                    </div>
+                    <div className="col-sm-7">
+                      <ol className="donate__steps">
+                        <li>Open your bank&apos;s mobile app and go to Zelle.</li>
+                        <li>Choose Send, then tap the QR code icon and scan the code.</li>
+                        <li>
+                          Before submitting, verify that the recipient displays as{' '}
+                          <strong>TRIPLE H HEALTH CARE SERVICES</strong>.
+                        </li>
+                        <li>Enter your donation amount.</li>
+                        <li>
+                          Add your full name and email address in the memo so we can acknowledge your
+                          contribution and provide a donation receipt.
+                        </li>
+                      </ol>
+                    </div>
+                  </div>
+                  <p className="donate__note">
+                    On a phone? A QR code can&apos;t be scanned from the same phone that&apos;s displaying it.
+                    Use Venmo instead, open this page on another screen, or{' '}
+                    <a href="#contact">contact us</a> for our Zelle details.
+                  </p>
                 </div>
               </div>
-              <div className="col-lg-6 col-md-6">
-                <h3 className="donate__heading">Donate with Zelle</h3>
-                <ol className="donate__steps">
-                  <li>Open your bank&apos;s mobile app and go to Zelle.</li>
-                  <li>Choose Send, then tap the QR code icon and scan the code.</li>
-                  <li>
-                    Before submitting, verify that the recipient displays as{' '}
-                    <strong>TRIPLE H HEALTH CARE SERVICES</strong>.
-                  </li>
-                  <li>Enter your donation amount.</li>
-                  <li>
-                    Add your full name and email address in the memo so we can acknowledge your contribution
-                    and provide a donation receipt.
-                  </li>
-                </ol>
-                <p className="donate__note">
-                  On a phone? A QR code can&apos;t be scanned from the same phone that&apos;s displaying it.
-                  Use Venmo below, open this page on another screen, or <a href="#contact">contact us</a>{' '}
-                  for our Zelle details.
-                </p>
+              <div className="col-lg-5">
+                <div className="donate__card donate__card--venmo">
+                  <div className="donate__venmo-header">
+                    <h3 className="donate__heading">Donate with Venmo</h3>
+                  </div>
+                  <div className="donate__venmo-body">
+                    <p className="donate__venmo-handle">@{venmoHandle}</p>
+                    <p>
+                      Send your donation to <strong>@{venmoHandle}</strong> on Venmo. Please include your full
+                      name and email address in the note so we can acknowledge your contribution and provide a
+                      donation receipt.
+                    </p>
+                    <a
+                      href={venmoUrl}
+                      className="donate__venmo-btn"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >
+                      Donate with Venmo
+                    </a>
+                  </div>
+                </div>
               </div>
             </div>
-            <div className="donate__venmo text-center">
-              <h3 className="donate__heading">Donate with Venmo</h3>
-              <p>
-                Send your donation to <strong>@{venmoHandle}</strong> on Venmo. Please include your full name
-                and email address in the note so we can acknowledge your contribution and provide a donation
-                receipt.
-              </p>
-              <a
-                href={venmoUrl}
-                className="donate__venmo-btn"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                Donate with Venmo
-              </a>
+
+            <div className="donate__card donate__partners">
+              <div className="row gy-3 align-items-center">
+                <div className="col-lg-9">
+                  <h3 className="donate__heading">Corporate and Community Partnerships</h3>
+                  <p>
+                    Interested in supporting Healing Helping Hands through a corporate sponsorship, product
+                    donation, hospital partnership, or community initiative? We welcome opportunities to work
+                    with organizations that share our commitment to improving the recovery experience.
+                  </p>
+                  <p>Contact us to discuss partnership opportunities.</p>
+                </div>
+                <div className="col-lg-3 text-lg-end">
+                  <a href="#contact" className="donate__partners-btn">
+                    Contact Us
+                  </a>
+                </div>
+              </div>
             </div>
 
-            <div className="donate__block donate__block--divider">
-              <h3 className="donate__heading">Corporate and Community Partnerships</h3>
-              <p>
-                Interested in supporting Healing Helping Hands through a corporate sponsorship, product
-                donation, hospital partnership, or community initiative? We welcome opportunities to work with
-                organizations that share our commitment to improving the recovery experience.
-              </p>
-              <p>
-                <a href="#contact">Contact us</a> to discuss partnership opportunities.
-              </p>
-            </div>
-
-            <div className="donate__block donate__block--divider donate__thanks">
+            <div className="donate__thanks">
               <h3 className="donate__heading">Thank You for Helping Us Help Others</h3>
               <p>
                 Your support allows Healing Helping Hands to continue bringing care, encouragement, dignity,
