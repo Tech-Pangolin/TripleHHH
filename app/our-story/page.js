@@ -45,12 +45,13 @@ export default function OurStoryPage() {
               </div>
               <div className="col-lg-6 order-lg-1">
                 <p className="our-story-intro__text">
-                  Chenell Hickey, Triple H&apos;s CEO and founder, suffered a tragic accident in December of
-                  2022. He sustained a severe spinal cord injury and was left paralyzed from the neck down.
-                  After six surgeries and spending six months hospitalized and in continuous care before
-                  finally being released, ongoing rehabilitation, one-on-one interactive activities including
-                  personal grooming, and the support of many prayers, Chenell became a walking testimony.
-                  Triple H grew from his personal experience and the care that supported his recovery.
+                  Chenell Hickey, Triple H&apos;s CEO and founder, suffered a tragic accident in December 2022.
+                  He sustained a severe spinal cord injury and was left paralyzed from the neck down. After
+                  undergoing six surgeries and spending six months hospitalized and in continuous care before
+                  finally being released, Chenell began ongoing rehabilitation that included one-on-one
+                  interactive activities, personal grooming, and the support of many prayers. Through his
+                  remarkable recovery, Chenell became a walking testimony. Triple H grew from his personal
+                  experience and the care that supported his recovery.
                 </p>
               </div>
             </div>
