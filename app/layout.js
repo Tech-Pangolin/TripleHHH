@@ -8,7 +8,7 @@ import './globals.css';
 export const metadata = {
   metadataBase: new URL(siteUrl),
   title: {
-    default: 'Holistic Wellness and Recovery Support in Carrollton, TX | Healing Helping Hands',
+    default: 'Holistic Wellness and Recovery Support | Healing Helping Hands',
     template: `%s | ${siteName}`,
   },
   description: siteDescription,
@@ -18,13 +18,13 @@ export const metadata = {
     locale: 'en_US',
     siteName,
     url: '/',
-    title: 'Holistic Wellness and Recovery Support in Carrollton, TX',
+    title: 'Holistic Wellness and Recovery Support',
     description: siteDescription,
     images: [ogImage],
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Holistic Wellness and Recovery Support in Carrollton, TX',
+    title: 'Holistic Wellness and Recovery Support',
     description: siteDescription,
     images: [ogImage.url],
   },

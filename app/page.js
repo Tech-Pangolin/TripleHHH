@@ -1,6 +1,6 @@
 import Hero from '@/components/Hero';
 import ContactForm from '@/components/ContactForm';
-import { accessibilityItems, legalName, services, slogan, venmoHandle, venmoUrl } from '@/lib/site';
+import { accessibilityItems, services, slogan, venmoHandle, venmoUrl } from '@/lib/site';
 
 export const metadata = {
   alternates: { canonical: '/' },
@@ -15,16 +15,16 @@ export default function HomePage() {
           <div className="container">
             <div className="row no-gutters">
               <div className="image col-xl-5 d-flex align-items-stretch justify-content-center justify-content-lg-start" />
-              <div className="col-xl-7 ps-0 ps-lg-5 pe-lg-1 d-flex align-items-stretch">
+              <div className="col-xl-7 ps-lg-5 pe-lg-1 d-flex align-items-stretch">
                 <div className="content d-flex flex-column justify-content-center">
-                  <h1>Holistic Wellness and Recovery Support in Carrollton, TX</h1>
+                  <h1>Holistic Wellness and Recovery Support</h1>
                   <blockquote style={{ color: '#D7952A', fontSize: 24 }}>
                     &quot;{slogan}&quot;
                   </blockquote>
                   <p>
                     Healing Helping Hands (Triple H) is a nonprofit that provides non-traditional, holistic
-                    wellness services to individuals and families in Carrollton and across the Dallas-Fort Worth
-                    area during short- and long-term recovery.
+                    wellness services to individuals and families in need of compassionate, dependable care
+                    during short- and long-term recovery.
                   </p>
                   <p>
                     We believe healing involves more than traditional care alone. Looking good, feeling good,
@@ -123,12 +123,53 @@ export default function HomePage() {
           <div className="container">
             <div className="section-title">
               <h2>Support Our Mission</h2>
+              <p className="donate__subtitle">Your Donation Makes a Difference</p>
+            </div>
+            <div className="donate__intro">
               <p>
-                {legalName} is recognized by the IRS as a tax-exempt nonprofit organization under Section
-                501(c)(3). Contributions are tax-deductible to the extent permitted by law.
+                At Healing Helping Hands (Triple H), we believe recovery is about more than medical treatment.
+                It&apos;s also about restoring hope, confidence, dignity, and a sense of normalcy during some of
+                life&apos;s most difficult moments.
+              </p>
+              <p>
+                Your contribution helps us provide supportive wellness, personal-care, and uplifting experiences
+                for individuals and families navigating short- and long-term recovery.
+              </p>
+              <p>
+                Whether someone is recovering from a serious injury, illness, extended hospitalization, or
+                rehabilitation, our goal is simple: help make the journey a little easier and remind people
+                that they are not alone.
               </p>
             </div>
-            <div className="row justify-content-center align-items-center gy-4">
+
+            <div className="donate__block">
+              <h3 className="donate__heading">Where Your Support Goes</h3>
+              <p>
+                Donations help support wellness and personal-care services, patient and family support,
+                programs promoting confidence and emotional well-being, special experiences and entertainment,
+                and community outreach initiatives.
+              </p>
+            </div>
+
+            <div className="donate__block">
+              <h3 className="donate__heading">Every Contribution Matters</h3>
+              <p>
+                Whether someone gives $25, $50, $100, $500, or more, every contribution helps us continue
+                expanding our reach and providing meaningful support to people throughout their recovery
+                journey.
+              </p>
+              <p className="donate__callout">Together, we can help turn difficult days into better ones.</p>
+            </div>
+
+            <div className="donate__block donate__block--divider">
+              <h3 className="donate__heading">Donate Now</h3>
+              <p>
+                Healing Helping Hands is a 501(c)(3) nonprofit organization. Contributions are tax-deductible
+                to the extent permitted by law.
+              </p>
+            </div>
+
+            <div className="row justify-content-center align-items-center gy-4 mt-2">
               <div className="col-lg-4 col-md-6 text-center">
                 <div className="donate__qr">
                   <img
@@ -146,9 +187,15 @@ export default function HomePage() {
                 <ol className="donate__steps">
                   <li>Open your bank&apos;s mobile app and go to Zelle.</li>
                   <li>Choose Send, then tap the QR code icon and scan the code.</li>
-                  <li>Confirm that the recipient shows as TRIPLE H HEALTH CARE SERVICES.</li>
+                  <li>
+                    Before submitting, verify that the recipient displays as{' '}
+                    <strong>TRIPLE H HEALTH CARE SERVICES</strong>.
+                  </li>
                   <li>Enter your donation amount.</li>
-                  <li>Add your name and email in the memo so we can send your donation receipt.</li>
+                  <li>
+                    Add your full name and email address in the memo so we can acknowledge your contribution
+                    and provide a donation receipt.
+                  </li>
                 </ol>
                 <p className="donate__note">
                   On a phone? A QR code can&apos;t be scanned from the same phone that&apos;s displaying it.
@@ -160,8 +207,9 @@ export default function HomePage() {
             <div className="donate__venmo text-center">
               <h3 className="donate__heading">Donate with Venmo</h3>
               <p>
-                Send your donation to <strong>@{venmoHandle}</strong> on Venmo. Please include your name and
-                email in the note so we can send your donation receipt.
+                Send your donation to <strong>@{venmoHandle}</strong> on Venmo. Please include your full name
+                and email address in the note so we can acknowledge your contribution and provide a donation
+                receipt.
               </p>
               <a
                 href={venmoUrl}
@@ -171,6 +219,31 @@ export default function HomePage() {
               >
                 Donate with Venmo
               </a>
+            </div>
+
+            <div className="donate__block donate__block--divider">
+              <h3 className="donate__heading">Corporate and Community Partnerships</h3>
+              <p>
+                Interested in supporting Healing Helping Hands through a corporate sponsorship, product
+                donation, hospital partnership, or community initiative? We welcome opportunities to work with
+                organizations that share our commitment to improving the recovery experience.
+              </p>
+              <p>
+                <a href="#contact">Contact us</a> to discuss partnership opportunities.
+              </p>
+            </div>
+
+            <div className="donate__block donate__block--divider donate__thanks">
+              <h3 className="donate__heading">Thank You for Helping Us Help Others</h3>
+              <p>
+                Your support allows Healing Helping Hands to continue bringing care, encouragement, dignity,
+                and hope to people facing challenging recovery journeys.
+              </p>
+              <p className="donate__tagline">Healing. Helping. Hope.</p>
+              <p>
+                Together, we can make a difference&mdash;one person, one family, and one recovery at a time.
+              </p>
+              <p className="donate__thanks-closing">Thank you!</p>
             </div>
           </div>
         </section>

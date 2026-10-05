@@ -5,7 +5,7 @@ import StoryVideo from '@/components/StoryVideo';
 import { donationUrl, ogImage, siteName } from '@/lib/site';
 
 const description =
-  'How founder Chenell Hickey recovered from a severe spinal cord injury and started Healing Helping Hands to support people in recovery across Dallas-Fort Worth.';
+  'How founder Chenell Hickey recovered from a severe spinal cord injury and started Healing Helping Hands to provide compassionate, dependable care to people in recovery.';
 
 export const metadata = {
   title: 'Our Story',
@@ -47,7 +47,8 @@ export default function OurStoryPage() {
                 <p className="our-story-intro__text">
                   Chenell Hickey, Triple H&apos;s CEO and founder, suffered a tragic accident in December of
                   2022. He sustained a severe spinal cord injury and was left paralyzed from the neck down.
-                  After six surgeries, ongoing rehabilitation, one-on-one interactive activities including
+                  After six surgeries and spending six months hospitalized and in continuous care before
+                  finally being released, ongoing rehabilitation, one-on-one interactive activities including
                   personal grooming, and the support of many prayers, Chenell became a walking testimony.
                   Triple H grew from his personal experience and the care that supported his recovery.
                 </p>

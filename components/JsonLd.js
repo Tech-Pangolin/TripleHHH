@@ -22,10 +22,6 @@ const organization = {
     postalCode: '75010',
     addressCountry: 'US',
   },
-  areaServed: [
-    { '@type': 'City', name: 'Carrollton, TX' },
-    { '@type': 'Place', name: 'Dallas-Fort Worth metroplex' },
-  ],
   hasOfferCatalog: {
     '@type': 'OfferCatalog',
     name: 'Wellness and recovery support services',

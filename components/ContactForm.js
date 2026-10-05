@@ -49,8 +49,8 @@ export default function ContactForm() {
         <div className="section-title">
           <h2>Contact</h2>
           <p>
-            Serving Carrollton and the Dallas-Fort Worth area. For more information, please reach out to us
-            below.
+            We provide compassionate, dependable care to individuals and families in need. For more
+            information, please reach out to us below.
           </p>
         </div>
 
